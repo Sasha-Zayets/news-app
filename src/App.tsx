@@ -7,14 +7,12 @@ import { GlobalStyle } from './styles';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <GlobalStyle />
       <Header />
-        <BrowserRouter>
-          <Router />
-        </BrowserRouter>
+        <Router />
       <Footer />
-    </>
+    </BrowserRouter>
   );
 }
 
