@@ -5,6 +5,10 @@ import {
   Logo,
   Navigation,
   Link,
+  Search,
+  SearchInput,
+  SearchButton,
+  SearchIcon
 } from './styles';
 import { Container } from '../../styles';
 import logo from '../../../assets/images/logo.svg';
@@ -12,14 +16,20 @@ import logo from '../../../assets/images/logo.svg';
 const Header = () => (
   <Wrapper>
     <Container>
+      <Logo src={logo} />
       <ContainerWrapper>
-        <Logo src={logo} />
         <Navigation>
           <Link to="/">Test</Link>
           <Link to="/">Test</Link>
           <Link to="/">Test</Link>
           <Link to="/">Test</Link>
         </Navigation>
+        <Search>
+          <SearchInput />
+          <SearchButton>
+            <SearchIcon name="search" />
+          </SearchButton>
+        </Search>
       </ContainerWrapper>
     </Container>
   </Wrapper>

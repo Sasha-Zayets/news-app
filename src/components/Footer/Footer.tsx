@@ -1,11 +1,19 @@
 import React from 'react';
 import {
-  Wrapper
+  Wrapper,
+  Link,
 } from "./styles";
+import { Container } from '../../styles';
 
 const Footer = () => (
   <Wrapper>
-    Footer
+    <Container>
+      &#169; developed
+      <Link
+        href="https://github.com/Sasha-Zayets/"
+        target="__blank"
+      >Sasha Zayets</Link>
+    </Container>
   </Wrapper>
 );
 
