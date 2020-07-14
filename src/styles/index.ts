@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components'
-import { normalize } from "styled-normalize";
+// @ts-ignore
+import normalize from 'reset-css/reset.css';
 
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
