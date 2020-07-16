@@ -25,7 +25,7 @@ const Header = () => (
           <Link to="/">Test</Link>
         </Navigation>
         <Search>
-          <SearchInput />
+          <SearchInput placeholder="Search news" />
           <SearchButton>
             <SearchIcon name="search" />
           </SearchButton>
