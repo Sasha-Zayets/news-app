@@ -8,27 +8,29 @@ import {
 import { Container } from '../../styles';
 import NewsColList from "../../container/NewsColList";
 import { getPopularNews } from "../../store/actions/homeActions";
-import {HomeStateType, newsType} from '../../store/types/home';
+import { newsType } from '../../store/types/home';
+import { Action } from 'redux';
+import { RootState } from "../../store/reducers";
+import { ThunkDispatch } from "redux-thunk";
 
 interface HomePropsType {
   popularNews: Array<newsType>
   lastNews: Array<newsType>
-  getPopularNews: Function
+  getPopularNews: () => void
 }
-const Home: React.FC<HomePropsType> = ({ getPopularNews }) => {
+const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews }) => {
   useEffect(() => {
     getPopularNews();
-  });
+  }, [getPopularNews]);
 
   return (
     <HomeWrapper>
       <Container>
         <NewsRow>
           <NewsCol>
-            <NewsColList title="Popular news" />
+            <NewsColList title="Popular news" news={ popularNews } />
           </NewsCol>
           <NewsCol>
-            <NewsColList title="Last news" />
           </NewsCol>
           <NewsCol>
 
@@ -39,12 +41,12 @@ const Home: React.FC<HomePropsType> = ({ getPopularNews }) => {
   )
 }
 
-const mapStateToProps = (state: HomeStateType) => ({
-  popularNews: state.popularNews,
-  lastNews: state.lastNews
+const mapStateToProps = (state: RootState) => ({
+  popularNews: state.home.popularNews,
+  lastNews: state.home.lastNews
 });
 
-const mapDispatchToProps = (dispatch: any) => ({
+const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, void, Action>) => ({
   getPopularNews: () => dispatch(getPopularNews()),
 });
 

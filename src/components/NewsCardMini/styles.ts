@@ -20,7 +20,7 @@ export const Image = styled.img`
 
 export const Content = styled.div``;
 
-export const Date = styled.div`
+export const DateValue = styled.div`
   color: #e74643;
   font-size: 16px;
   margin-bottom: 10px;

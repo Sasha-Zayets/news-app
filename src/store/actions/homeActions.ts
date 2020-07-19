@@ -1,7 +1,9 @@
 import axios from '../../utils/axios';
-import { Dispatch } from 'redux';
+import { Action } from 'redux';
 import { newsType, SetPopularNewsAction } from "../types/home";
 import { SET_POPULAR_NEWS } from "../types/home";
+import { ThunkDispatch } from "redux-thunk";
+import { RootState } from "../reducers";
 
 export const setPopularNews = (
   payload: Array<newsType>
@@ -10,10 +12,14 @@ export const setPopularNews = (
   payload
 });
 
-export const getPopularNews = () => async (dispatch: Dispatch): Promise<void> => {
+export const getPopularNews = () => async (
+  dispatch: ThunkDispatch<RootState, void, Action>
+) => {
   try {
-    const result = await axios.get('top-headlines?country=us');
-    console.log(result);
+    const { data } = await axios.get('top-headlines?country=us');
+    const popularNews = data.articles.splice(0, 10);
+
+    dispatch(setPopularNews(popularNews));
   } catch(error) {
     console.log(error);
   }

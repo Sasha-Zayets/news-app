@@ -6,13 +6,15 @@ import {
   Content,
   NewsCard
 } from './styles';
+import {newsType} from "../../store/types/home";
 
 interface NewsColList {
-  className?: string,
+  className?: string
   title: string
+  news: Array<newsType>
 }
 
-const NewsColList: React.FC<NewsColList> = ({ className, title }) => {
+const NewsColList: React.FC<NewsColList> = ({ className, title, news }) => {
   return (
     <Container className={className}>
       <Title>
@@ -21,10 +23,13 @@ const NewsColList: React.FC<NewsColList> = ({ className, title }) => {
         </TitleText>
       </Title>
       <Content>
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
-        <NewsCard />
+        {
+          news.length > 0
+          ? news.map((item: newsType, index: number) => {
+              return <NewsCard key={index} news={item} />
+            })
+          : <strong>Not news</strong>
+        }
       </Content>
     </Container>
   )

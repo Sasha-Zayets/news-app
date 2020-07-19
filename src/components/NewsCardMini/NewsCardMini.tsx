@@ -5,22 +5,32 @@ import {
   Image,
   Content,
   Title,
-  Date,
+  DateValue,
 } from './styles';
+import {newsType} from "../../store/types/home";
 
 interface NewsCardMini {
-  className?: string
+  className?: string,
+  news: newsType
 }
 
-const NewsCardMini: React.FC<NewsCardMini> = ({ className }) => {
+const NewsCardMini: React.FC<NewsCardMini> = ({ className, news }) => {
+  const filterDate = new Date(news.publishedAt);
+  const resultDate: string = `${filterDate.getDate()}/${filterDate.getMonth()}/${filterDate.getFullYear()}`;
+  console.log(resultDate);
+
   return (
     <Card className={className}>
       <Frame>
-        <Image src="https://picsum.photos/536/354"/>
+        <Image src={news.urlToImage} />
       </Frame>
       <Content>
-        <Date>18.20.2020</Date>
-        <Title>Random Name New</Title>
+        <DateValue>
+          { resultDate }
+        </DateValue>
+        <Title>
+          { news.title }
+        </Title>
       </Content>
     </Card>
   )
