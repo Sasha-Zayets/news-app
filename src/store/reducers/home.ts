@@ -1,4 +1,4 @@
-import {HomeStateType, SET_POPULAR_NEWS, SetPopularNewsAction} from '../types/home';
+import { HomeStateType, SET_POPULAR_NEWS, HomeActions, SET_LOADING } from '../types/home';
 
 const initialState: HomeStateType = {
   popularNews: [],
@@ -8,7 +8,7 @@ const initialState: HomeStateType = {
 
 const homeDataReducer = (
   state = initialState,
-  action: SetPopularNewsAction
+  action: HomeActions
 ): HomeStateType => {
   switch(action.type) {
     case SET_POPULAR_NEWS:
@@ -16,6 +16,11 @@ const homeDataReducer = (
        ...state,
        popularNews: action.payload
      }
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      }
   }
 
   return state;

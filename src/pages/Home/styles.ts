@@ -5,8 +5,11 @@ export const HomeWrapper = styled.div`
 `;
 
 export const NewsRow = styled.div`
+  width: 100%;
   display: flex;
   margin-right: -30px;
+  position: relative;
+  min-height: 300px;
 `;
 
 export const NewsCol = styled.div`

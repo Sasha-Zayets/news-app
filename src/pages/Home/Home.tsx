@@ -7,6 +7,7 @@ import {
 } from './styles';
 import { Container } from '../../styles';
 import NewsColList from "../../container/NewsColList";
+import Preloader from "../../components/Preloader";
 import { getPopularNews } from "../../store/actions/homeActions";
 import { NewsType } from '../../store/types/home';
 import { Action } from 'redux';
@@ -16,9 +17,10 @@ import { ThunkDispatch } from "redux-thunk";
 interface HomePropsType {
   popularNews: Array<NewsType>
   lastNews: Array<NewsType>
+  loading: boolean
   getPopularNews: () => void
 }
-const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews }) => {
+const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews, loading }) => {
   useEffect(() => {
     getPopularNews();
   }, [getPopularNews]);
@@ -27,6 +29,7 @@ const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews }) => {
     <HomeWrapper>
       <Container>
         <NewsRow>
+          <Preloader loading={ loading } />
           <NewsCol>
             <NewsColList title="Popular news" news={ popularNews } />
           </NewsCol>
@@ -40,7 +43,8 @@ const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews }) => {
 
 const mapStateToProps = (state: RootState) => ({
   popularNews: state.home.popularNews,
-  lastNews: state.home.lastNews
+  lastNews: state.home.lastNews,
+  loading: state.home.loading,
 });
 
 const mapDispatchToProps = (dispatch: ThunkDispatch<RootState, void, Action>) => ({
