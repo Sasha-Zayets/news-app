@@ -7,17 +7,16 @@ import {
   Title,
   DateValue,
 } from './styles';
-import {newsType} from "../../store/types/home";
+import { NewsType } from "../../store/types/home";
 
 interface NewsCardMini {
   className?: string,
-  news: newsType
+  news: NewsType
 }
 
 const NewsCardMini: React.FC<NewsCardMini> = ({ className, news }) => {
-  const filterDate = new Date(news.publishedAt);
+  const filterDate: Date = new Date(news.publishedAt);
   const resultDate: string = `${filterDate.getDate()}/${filterDate.getMonth()}/${filterDate.getFullYear()}`;
-  console.log(resultDate);
 
   return (
     <Card className={className}>

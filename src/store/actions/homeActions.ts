@@ -1,12 +1,12 @@
 import axios from '../../utils/axios';
 import { Action } from 'redux';
-import { newsType, SetPopularNewsAction } from "../types/home";
+import { NewsType, SetPopularNewsAction } from "../types/home";
 import { SET_POPULAR_NEWS } from "../types/home";
 import { ThunkDispatch } from "redux-thunk";
 import { RootState } from "../reducers";
 
 export const setPopularNews = (
-  payload: Array<newsType>
+  payload: Array<NewsType>
 ): SetPopularNewsAction => ({
   type: SET_POPULAR_NEWS,
   payload

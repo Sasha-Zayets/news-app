@@ -7,6 +7,7 @@ export const Card = styled.div`
 
 export const Frame = styled.div`
   width: 210px;
+  min-width: 210px;
   height: 100px;
   margin-right: 20px;
 `;

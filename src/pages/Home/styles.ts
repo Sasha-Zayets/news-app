@@ -10,6 +10,6 @@ export const NewsRow = styled.div`
 `;
 
 export const NewsCol = styled.div`
-  width: calc((100% / 3) - 30px);
+  width: calc((100% / 2) - 30px);
   margin-right: 30px;
 `;

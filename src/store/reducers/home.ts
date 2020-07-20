@@ -2,7 +2,8 @@ import {HomeStateType, SET_POPULAR_NEWS, SetPopularNewsAction} from '../types/ho
 
 const initialState: HomeStateType = {
   popularNews: [],
-  lastNews: []
+  lastNews: [],
+  loading: false
 }
 
 const homeDataReducer = (

@@ -1,6 +1,6 @@
 export const SET_POPULAR_NEWS = 'SET_POPULAR_NEWS';
 
-export interface newsType {
+export interface NewsType {
   title: string | null
   url: string | null
   publishedAt: string | number
@@ -8,11 +8,12 @@ export interface newsType {
 }
 
 export interface HomeStateType {
-  popularNews: Array<newsType>
-  lastNews: Array<newsType>
+  popularNews: Array<NewsType>
+  lastNews: Array<NewsType>,
+  loading: boolean
 }
 
 export interface SetPopularNewsAction {
   type: typeof SET_POPULAR_NEWS,
-  payload: Array<newsType>
+  payload: Array<NewsType>
 }

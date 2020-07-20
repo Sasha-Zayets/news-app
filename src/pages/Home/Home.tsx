@@ -8,14 +8,14 @@ import {
 import { Container } from '../../styles';
 import NewsColList from "../../container/NewsColList";
 import { getPopularNews } from "../../store/actions/homeActions";
-import { newsType } from '../../store/types/home';
+import { NewsType } from '../../store/types/home';
 import { Action } from 'redux';
 import { RootState } from "../../store/reducers";
 import { ThunkDispatch } from "redux-thunk";
 
 interface HomePropsType {
-  popularNews: Array<newsType>
-  lastNews: Array<newsType>
+  popularNews: Array<NewsType>
+  lastNews: Array<NewsType>
   getPopularNews: () => void
 }
 const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews }) => {
@@ -31,9 +31,6 @@ const Home: React.FC<HomePropsType> = ({ popularNews, getPopularNews }) => {
             <NewsColList title="Popular news" news={ popularNews } />
           </NewsCol>
           <NewsCol>
-          </NewsCol>
-          <NewsCol>
-
           </NewsCol>
         </NewsRow>
       </Container>

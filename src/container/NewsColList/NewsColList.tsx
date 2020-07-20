@@ -6,12 +6,12 @@ import {
   Content,
   NewsCard
 } from './styles';
-import {newsType} from "../../store/types/home";
+import {NewsType} from "../../store/types/home";
 
 interface NewsColList {
   className?: string
   title: string
-  news: Array<newsType>
+  news: Array<NewsType>
 }
 
 const NewsColList: React.FC<NewsColList> = ({ className, title, news }) => {
@@ -25,7 +25,7 @@ const NewsColList: React.FC<NewsColList> = ({ className, title, news }) => {
       <Content>
         {
           news.length > 0
-          ? news.map((item: newsType, index: number) => {
+          ? news.map((item: NewsType, index: number) => {
               return <NewsCard key={index} news={item} />
             })
           : <strong>Not news</strong>
